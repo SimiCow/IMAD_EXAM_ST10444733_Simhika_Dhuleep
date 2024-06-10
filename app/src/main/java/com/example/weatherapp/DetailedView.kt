@@ -6,13 +6,12 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 
-class MainScreen : AppCompatActivity() {
+class DetailedView : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_screen)
+        setContentView(R.layout.activity_detailed_view)
 
-        var detailedViewButton = findViewById<Button>(R.id.detailedViewBtn)
-        var exitBtn = findViewById<Button>(R.id.exitBtn)
+        var returnToMainBtn = findViewById<Button>(R.id.returnBtn)
         var min1 = findViewById<TextView>(R.id.min1TV)
         var min2 = findViewById<TextView>(R.id.min2TV)
         var min3 = findViewById<TextView>(R.id.min3TV)
@@ -27,13 +26,9 @@ class MainScreen : AppCompatActivity() {
         var max5 = findViewById<TextView>(R.id.max5TV)
         var max6 = findViewById<TextView>(R.id.max6TV)
         var max7 = findViewById<TextView>(R.id.max7TV)
-        var aveTempTV = findViewById<TextView>(R.id.weekAverageTV)
-        var aveTemp = 0
         var daysArr = arrayOf<String>("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday")
         var minArr = arrayOf<Int>(12,15,16,15,11,10,10)
         var maxArr = arrayOf<Int>(25,29,30,28,24,18,16)
-        var count = 0
-
         min1.text = minArr[0].toString()
         min2.text = minArr[1].toString()
         min3.text = minArr[2].toString()
@@ -50,25 +45,12 @@ class MainScreen : AppCompatActivity() {
         max7.text = maxArr[6].toString()
 
 
-        detailedViewButton.setOnClickListener {
-            val intent2 = Intent(this, DetailedView::class.java)
-            startActivity(intent2)
+        returnToMainBtn.setOnClickListener {
+            val intent3 = Intent(this, MainScreen::class.java)
+            startActivity(intent3)
         }
 
-        while (count < 7)
-        {
-            aveTemp
-            aveTemp = minArr[count]+maxArr[count]
-            aveTemp += aveTemp
-            count++
-        }
-        aveTemp = aveTemp/7
-        aveTempTV.text = aveTemp.toString()
 
-        exitBtn.setOnClickListener {
-            finish()
-        }
 
     }
-
 }

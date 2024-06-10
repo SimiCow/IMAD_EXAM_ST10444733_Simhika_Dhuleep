@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
 
         enterButton.setOnClickListener{
             val intent = Intent(this, MainScreen::class.java)
+            startActivity(intent)
         }
     }
 
