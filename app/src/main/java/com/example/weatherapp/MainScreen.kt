@@ -34,6 +34,7 @@ class MainScreen : AppCompatActivity() {
         var maxArr = arrayOf<Int>(25,29,30,28,24,18,16)
         var count = 0
 
+        //assign values to text views
         min1.text = minArr[0].toString()
         min2.text = minArr[1].toString()
         min3.text = minArr[2].toString()
@@ -62,8 +63,9 @@ class MainScreen : AppCompatActivity() {
             aveTemp += aveTemp
             count++
         }
-        aveTemp = aveTemp/7
-        aveTempTV.text = aveTemp.toString()
+        aveTemp = aveTemp/2
+        aveTempTV.text = aveTemp.toString() //working for average temp
+
 
         exitBtn.setOnClickListener {
             finish()
